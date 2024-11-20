@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Resume</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+</head>
+<body>
+
+    <form id="resume-form">
+        <h1>Create Your Resume</h1>
+        
+        <!-- Username Input for Unique URL -->
+        <fieldset>
+            <label for="username">Username (for unique URL):</label>
+            <input type="text" id="username" name="username" placeholder="Enter username" required>
+        </fieldset>
+
+        <!-- Personal Information -->
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone">
+            <label for="linkedIn">LinkedIn:</label>
+            <input type="text" id="linkedIn" name="linkedIn">
+            <label for="objective">Objective:</label>
+            <textarea id="objective" name="objective"></textarea>
+        </fieldset>
+        
+        <!-- Work Experience -->
+        <fieldset>
+            <legend>Work Experience</legend>
+            <label for="organization">Organization:</label>
+            <input type="text" id="organization" name="organization">
+            <label for="role">Role:</label>
+            <input type="text" id="role" name="role">
+            <label for="fromYear">From Year:</label>
+            <input type="number" id="fromYear" name="fromYear">
+            <label for="toYear">To Year:</label>
+            <input type="number" id="toYear" name="toYear">
+            <label for="experienceDetails">Experience Details:</label>
+            <textarea id="experienceDetails" name="experienceDetails"></textarea>
+        </fieldset>
+        
+        <!-- Education -->
+        <fieldset>
+            <legend>Education</legend>
+            <label for="degree">Degree:</label>
+            <input type="text" id="degree" name="degree">
+            <label for="university">University:</label>
+            <input type="text" id="university" name="university">
+            <label for="passingYear">Passing Year:</label>
+            <input type="number" id="passingYear" name="passingYear">
+            <label for="cgpa">CGPA:</label>
+            <input type="text" id="cgpa" name="cgpa">
+        </fieldset>
+
+        <!-- Skills -->
+        <fieldset>
+            <legend>Skills</legend>
+            <label for="softSkill1">Soft Skill 1:</label>
+            <input type="text" id="softSkill1" name="softSkill1">
+            <label for="softSkill2">Soft Skill 2:</label>
+            <input type="text" id="softSkill2" name="softSkill2">
+            <label for="softSkill3">Soft Skill 3:</label>
+            <input type="text" id="softSkill3" name="softSkill3">
+            <label for="techSkill1">Technical Skill 1:</label>
+            <input type="text" id="techSkill1" name="techSkill1">
+            <label for="techSkill2">Technical Skill 2:</label>
+            <input type="text" id="techSkill2" name="techSkill2">
+            <label for="techSkill3">Technical Skill 3:</label>
+            <input type="text" id="techSkill3" name="techSkill3">
+        </fieldset>
+
+        <!-- Languages -->
+        <fieldset>
+            <legend>Languages</legend>
+            <label for="language1">Language 1:</label>
+            <input type="text" id="language1" name="language1">
+            <label for="language2">Language 2:</label>
+            <input type="text" id="language2" name="language2">
+        </fieldset>
+
+        <!-- Certifications -->
+        <fieldset>
+            <legend>Certifications</legend>
+            <label for="cert1">Certification 1:</label>
+            <input type="text" id="cert1" name="cert1">
+            <label for="cert2">Certification 2:</label>
+            <input type="text" id="cert2" name="cert2">
+            <label for="cert3">Certification 3:</label>
+            <input type="text" id="cert3" name="cert3">
+        </fieldset>
+
+        <!-- Button to generate Resume -->
+        <button type="button" id="generateResumeBtn">Generate Resume</button>
+    </form>
+
+    <!-- Resume Output (Hidden initially) -->
+    <div id="resume-output" class="hidden">
+        <h2 id="resume-name"></h2>
+        <p><strong>Email:</strong> <span id="resume-email"></span></p>
+        <p><strong>Contact Info:</strong> <span id="resume-phone"></span></p>
+        <p><strong>LinkedIn:</strong> <span id="resume-linkedin"></span></p>
+        
+        <h3>Professional Summary</h3>
+        <p id="resume-objective"></p>
+
+        <h3>Work Experience</h3>
+        <p><strong>Organization:</strong> <span id="resume-organization"></span></p>
+        <p><strong>Role:</strong> <span id="resume-role"></span></p>
+        <p><strong>From Year:</strong> <span id="resume-fromYear"></span></p>
+        <p><strong>To Year:</strong> <span id="resume-toYear"></span></p>
+        <p><strong>Experience Details:</strong> <span id="resume-experienceDetails"></span></p>
+
+        <h3>Education</h3>
+        <p><strong>Degree:</strong> <span id="resume-degree"></span></p>
+        <p><strong>University:</strong> <span id="resume-university"></span></p>
+        <p><strong>Passing Year:</strong> <span id="resume-passingYear"></span></p>
+        <p><strong>CGPA:</strong> <span id="resume-cgpa"></span></p>
+
+        <h3>Skills</h3>
+        <ul id="resume-skills"></ul>
+
+        <h3>Languages</h3>
+        <ul id="resume-languages"></ul>
+
+        <h3>Professional Certifications</h3>
+        <ul id="resume-certifications"></ul>
+        
+        <!-- Shareable Link and Download -->
+        <div id="share-download">
+            <p>Share your resume with the link:</p>
+            <input type="text" id="shareable-link" readonly>
+            <button id="download-pdf">Download as PDF</button>
+        </div>
+    </div>
+
+    <script src="html2pdf.bundle.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
